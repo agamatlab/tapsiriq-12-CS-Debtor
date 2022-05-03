@@ -13,6 +13,8 @@ static class ExtensionMethods
         foreach (var item in list)
             Console.WriteLine(item);
     }
+
+
 }
 
 class Program
@@ -101,6 +103,8 @@ class Program
 
         //2) rhyta.com ve ya dayrep.com domenlerinde emaili olan borclulari cixartmag
 
+        // debtors.Where(d => d.Email.EndsWith("rhyta.com") || d.Email.EndsWith("dayrep.com")).Print();
+
         //foreach (var debtor in debtors)
         //    if (debtor.Email.EndsWith("rhyta.com")
         //    || debtor.Email.EndsWith("dayrep.com"))
@@ -108,6 +112,9 @@ class Program
 
 
         // 3) Yashi 26 - dan 36 - ya qeder olan borclulari cixartmag
+
+        // byte CalculateAge(DateTime birthDate) => Convert.ToByte(DateTime.Now.Year - birthDate.Year);
+        // debtors.Where(d => { byte age = CalculateAge(d.BirthDay); return age >= 26 && age < 36; }).Print();
 
         //foreach (var debtor in debtors)
         //{
@@ -118,11 +125,15 @@ class Program
 
         // 4) Borcu 5000 - den cox olmayan borclularic cixartmag
 
+        // debtors.Where(d => d.Debt < 5000).Print();
+
         //foreach (var debtor in debtors)
         //    if (debtor.Debt < 5000)
         //        Console.WriteLine(debtor);
 
         // 5) Butov adi 18 simvoldan cox olan ve telefon nomresinde 2 ve ya 2 - den cox 7 reqemi olan borclulari cixartmaq
+
+        //debtors.Where(d => d.FullName.Length > 18 && d.Phone.Count(c => c == '7') >= 2).Print();
 
         //foreach (var debtor in debtors)
         //    if (debtor.FullName.Length > 18
@@ -130,6 +141,8 @@ class Program
         //            Console.WriteLine(debtor);
 
         // 7) Qishda anadan olan borclulari cixardmaq
+
+        //debtors.Where(d => d.BirthDay.Month <= 2 || d.BirthDay.Month == 12).Print();
 
         //foreach (var debtor in debtors)
         //    if (debtor.BirthDay.Month <= 2 
@@ -139,15 +152,19 @@ class Program
         // 8) Borcu, umumi borclarin orta borcunnan cox olan borclulari
         // cixarmaq ve evvel familyaya gore sonra ise meblegin azalmagina gore sortirovka etmek
 
-        // double avrageDebt = debtors.Average(debtor => debtor.Debt);
-        // Console.WriteLine($"Avrage Debt: {avrageDebt}");
-        // var aboveAvrageList = debtors.Where(d => d.Debt > avrageDebt).ToList();
+        //double avrageDebt = debtors.Average(debtor => debtor.Debt);
+        //Console.WriteLine($"Avrage Debt: {avrageDebt}");
+        //var aboveAvrageList = debtors.Where(d => d.Debt > avrageDebt).ToList();
 
-        // aboveAvrageList.Print();
-        // aboveAvrageList.OrderBy(d => d.FullName.Substring(d.FullName.LastIndexOf(' '))).ToList().Print();
-        // aboveAvrageList.OrderByDescending(d => d.Debt).ToList().Print();
+        //aboveAvrageList.Print();
+        //Console.WriteLine("\n\n");
+        //aboveAvrageList.OrderBy(d => d.FullName.Substring(d.FullName.LastIndexOf(' ') + 1)).ToList().Print();
+        //Console.WriteLine("\n\n");
+        //aboveAvrageList.OrderByDescending(d => d.Debt).ToList().Print();
 
         // 9) Telefon nomresinde 8 olmayan borclularin yalniz familyasin, yashin ve umumi borcun meblegin cixarmaq
+
+        //debtors.Where(d => !d.Phone.Contains('8')).Print();
 
         // foreach (var debtor in debtors)
         //     if(!debtor.Phone.Contains('8'))
@@ -155,7 +172,7 @@ class Program
 
         // 11)Adinda ve familyasinda hec olmasa 3 eyni herf olan borclularin siyahisin cixarmaq ve onlari elifba sirasina gore sortirovka elemek
 
-        //var newDebtors = debtors.Where(d => d.FullName.) |||||||||||||||||||||||||||||||||||||||||||||||||
+        // |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
         // 13)borclulardan en coxu hansi ilde dogulubsa hemin ili cixartmaq
 
@@ -179,6 +196,9 @@ class Program
 
         // 16)2ci dunya muharibesin gormush borclularin siyahisi cixartmaq
 
+        //debtors.Where(d => d.BirthDay.Year <= 1945).Print();
+
+
         //foreach (var debtor in debtors)
         //    if(debtor.BirthDay.Year <= 1945)
         //        Console.WriteLine(debtor);
@@ -192,6 +212,8 @@ class Program
         //            return false;
         //    return true;
         //};
+
+        // debtors.Where(d => isNumberUniqie(d.Phone)).Print();
 
         //foreach (var debtor in debtors)
         //    if(isNumberUniqie(debtor.Phone))
@@ -208,6 +230,8 @@ class Program
         //    return dt;
         //};
 
+        //debtors.Where(d => d.Debt - (calculateBirthday(d.BirthDay) - DateTime.Now).TotalDays * 500 <= 0).Print();
+
         //foreach (var debtor in debtors)
         //{
         //    DateTime currentBirthDay = calculateBirthday(debtor.BirthDay);
@@ -219,12 +243,15 @@ class Program
 
         // 20)Adindaki ve familyasindaki herflerden "smile" sozunu yaza bileceyimiz borclularin siyahisini cixartmaq
 
-        //Func<string,string, bool> isContains = (main ,text) => { 
+        //Func<string, string, bool> isContains = (main, text) =>
+        //{
         //    foreach (var character in text)
         //        if (!main.Contains(character))
-        //            return false; 
+        //            return false;
         //    return true;
         //};
+
+        //debtors.Where(d => isContains(d.FullName.ToLower(), "smile")).Print();
 
         //foreach (var debtor in debtors)
         //        if (isContains(debtor.FullName.ToLower(),"smile"))
