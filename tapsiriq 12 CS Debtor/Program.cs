@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 static class ExtensionMethods
@@ -171,8 +172,15 @@ class Program
         //         Console.WriteLine($"{debtor.FullName.Substring(debtor.FullName.LastIndexOf(' '))} {DateTime.Now.Year - debtor.BirthDay.Year} {debtor.Debt} {debtor.Phone}");
 
         // 11)Adinda ve familyasinda hec olmasa 3 eyni herf olan borclularin siyahisin cixarmaq ve onlari elifba sirasina gore sortirovka elemek
+        //static bool existMoreCount(string text, uint minSameCount = 2)
+        //{
+        //    foreach (char c in text)
+        //        if (text.Count(ch => ch == c) >= minSameCount)
+        //            return true;
+        //    return false;
+        //}
 
-        // |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+        //debtors.Where(d => existMoreCount(d.FullName, 3)).Print();
 
         // 13)borclulardan en coxu hansi ilde dogulubsa hemin ili cixartmaq
 
@@ -256,5 +264,18 @@ class Program
         //foreach (var debtor in debtors)
         //        if (isContains(debtor.FullName.ToLower(),"smile"))
         //            Console.WriteLine( debtor);
+
+    }
+
+
+
+    static bool foo(string text)
+    {
+        List<char> list = new List<char>();
+        foreach (char c in text)
+            if (!list.Contains(c))
+                if (text.Count(ch => ch == c) >= 3) return true;
+                else list.Add(c);
+        return false;
     }
 }
