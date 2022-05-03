@@ -44,6 +44,7 @@ class Program
     }
 
     static List<Debtor> debtors = new List<Debtor> {
+            new Debtor("Aghmatlab D. Akberzade", DateTime.Parse("March 21, 1990"), "123-456-7897", "agha@gmail.com", "Baku City, UTC 13546", 808),
             new Debtor("Trafalgar D. Law", DateTime.Parse("March 21, 1990"), "123-456-7890", "DLaw@jourrapide.com", "Grand Line City, UT 84104", 8808),
             new Debtor("Shirley T. Qualls", DateTime.Parse("March 30, 1932"), "530-662-7732", "ShirleyTQualls@teleworm.us", "3565 Eagles Nest Drive Woodland, CA 95695", 2414),
             new Debtor("Danielle W. Grier", DateTime.Parse("October 18, 1953"), "321-473-4178", "DanielleWGrier@rhyta.com", "1973 Stoneybrook Road Maitland, FL 32751", 3599),
@@ -125,7 +126,7 @@ class Program
 
         //foreach (var debtor in debtors)
         //    if (debtor.FullName.Length > 18
-        //        || debtor.Phone.Count(c => c == '7') >= 2)
+        //        && debtor.Phone.Count(c => c == '7') >= 2)
         //            Console.WriteLine(debtor);
 
         // 7) Qishda anadan olan borclulari cixardmaq
@@ -154,7 +155,7 @@ class Program
 
         // 11)Adinda ve familyasinda hec olmasa 3 eyni herf olan borclularin siyahisin cixarmaq ve onlari elifba sirasina gore sortirovka elemek
 
-        //var newDebtors = debtors.Where(d => d.FullName.)
+        //var newDebtors = debtors.Where(d => d.FullName.) |||||||||||||||||||||||||||||||||||||||||||||||||
 
         // 13)borclulardan en coxu hansi ilde dogulubsa hemin ili cixartmaq
 
@@ -198,16 +199,22 @@ class Program
 
         // 19)Tesevvur edek ki,butun borclari olanlar bugunden etibaren her ay 500 azn pul odeyecekler.Oz ad gunune kimi borcun oduyub qurtara bilenlerin siyahisin cixartmaq
 
-        Func<DateTime, DateTime> calculateBirthday = dt =>
-        {
-            dt.AddYears(DateTime.Now.Year - dt.Year);
-            var span = dt - DateTime.Now;
-            if (span < TimeSpan.Zero) dt.AddYears(1);
-            return dt;
-        };
 
-        foreach (var debtor in debtors)
-            Console.WriteLine(debtor);
+        //Func<DateTime, DateTime> calculateBirthday = dt =>
+        //{
+        //    dt = dt.AddYears(DateTime.Now.Year - dt.Year);
+        //    var span = dt - DateTime.Now;
+        //    if (span < TimeSpan.Zero) dt = dt.AddYears(1);
+        //    return dt;
+        //};
+
+        //foreach (var debtor in debtors)
+        //{
+        //    DateTime currentBirthDay = calculateBirthday(debtor.BirthDay);
+        //    var days = (currentBirthDay - DateTime.Now).TotalDays;
+        //    if(debtor.Debt - days * 500 <= 0)
+        //        Console.WriteLine(debtor);
+        //}
 
 
         // 20)Adindaki ve familyasindaki herflerden "smile" sozunu yaza bileceyimiz borclularin siyahisini cixartmaq
